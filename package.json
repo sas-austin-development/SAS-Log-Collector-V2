@@ -1,0 +1,62 @@
+{
+  "title": "Freelancer",
+  "name": "startbootstrap-freelancer",
+  "version": "5.0.3",
+  "scripts": {
+    "start": "gulp watch",
+    "dev": "nodemon ./server.js"
+  },
+  "description": "A freelancer portfolio HTML theme for Bootstrap.",
+  "keywords": [
+    "css",
+    "sass",
+    "html",
+    "responsive",
+    "theme",
+    "template"
+  ],
+  "homepage": "https://startbootstrap.com/template-overviews/freelancer",
+  "bugs": {
+    "url": "https://github.com/BlackrockDigital/startbootstrap-freelancer/issues",
+    "email": "feedback@startbootstrap.com"
+  },
+  "license": "MIT",
+  "author": "Start Bootstrap",
+  "contributors": [
+    "David Miller (http://davidmiller.io/)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackrockDigital/startbootstrap-freelancer.git"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "5.7.2",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "bootstrap": "4.3.1",
+    "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "jquery": "3.3.1",
+    "jquery.easing": "^1.4.1",
+    "knex": "^0.16.3",
+    "magnific-popup": "^1.1.0",
+    "mongodb": "^3.2.3",
+    "mongoose": "^5.5.0"
+  },
+  "devDependencies": {
+    "browser-sync": "2.26.3",
+    "del": "^3.0.0",
+    "gulp": "4.0.0",
+    "gulp-autoprefixer": "6.0.0",
+    "gulp-clean-css": "4.0.0",
+    "gulp-header": "2.0.7",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "1.4.0",
+    "gulp-sass": "4.0.2",
+    "gulp-uglify": "3.0.1",
+    "merge-stream": "^1.0.1",
+    "nodemon": "^1.18.11"
+  },
+  "main": "gulpfile.js"
+}
