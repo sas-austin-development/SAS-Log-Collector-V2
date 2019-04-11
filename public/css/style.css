@@ -2,15 +2,29 @@ html {
   scroll-behavior: smooth;
 }
 
+.nav-link{
+  scroll-behavior: auto;
+}
+
 .headerUpdate{
  padding-top: 100px;
-  padding-bottom: 100px;
+ padding-bottom: 200px;
 }
 
 #headerButton{
   margin-top: 75px;
   background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  font-size: 25px;
+
+  transition: all .5s ease-in-out;
 }
+
+#headerButton:hover{ transform: scale(1.2); }
 
 #method1Start{
   padding-bottom: 200px;
@@ -63,19 +77,17 @@ html {
 	background-color: white;
 	border-radius: 25px;
 	color: black;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-top: 40px;
+	padding-bottom: 40px;
 	transition: all .5s ease-in-out;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 350px;
+  margin-right: 350px;
 }
 
 .generatedMessage:hover{
 	background-color:  #2C3E50;
 	border-radius: 25px;
 	color: white;
-	padding-top: 20px;
-	padding-bottom: 20px;
 }
 
 .imageUpdate{
@@ -208,4 +220,9 @@ html {
 
 #methodCard1{
   margin-left: 500px;
+}
+
+#methodCard2{
+  margin-left: 500px;
+
 }

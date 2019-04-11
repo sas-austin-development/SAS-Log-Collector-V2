@@ -2,10 +2,37 @@ html {
   scroll-behavior: smooth;
 }
 
+.nav-link{
+  scroll-behavior: auto;
+}
 
-.boxUpdate{
-  border-style: solid;
-  border-color: blue;
+.headerUpdate{
+ padding-top: 100px;
+ padding-bottom: 200px;
+}
+
+#headerButton{
+  margin-top: 75px;
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  font-size: 25px;
+
+  transition: all .5s ease-in-out;
+}
+
+#headerButton:hover{ transform: scale(1.2); }
+
+#method1Start{
+  padding-bottom: 200px;
+}
+
+#portfolio{
+  margin-top: 100px;
+  margin-bottom: 200px;
 }
 
 .guidedLogStep{
@@ -24,6 +51,21 @@ html {
 	transition: all .25s ease-in-out;
 }
 
+.updateDownload{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.sizeUpdate{
+  margin-left: 400px;
+  margin-right: 400px;
+}
+
+.sizeUpdateZip{
+  margin-left: 450px;
+  margin-right: 450px;
+}
+
 .newLine{
   border: 10px solid black;
   border-radius: 5px;
@@ -32,21 +74,20 @@ html {
 .guidedLogStep:hover { transform: scale(1.05); }
 
 .generatedMessage{
-	background-color:  #2C3E50;
+	background-color: white;
 	border-radius: 25px;
-	color: white;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	color: black;
+	padding-top: 40px;
+	padding-bottom: 40px;
 	transition: all .5s ease-in-out;
-  margin-top: 100px;
+  margin-left: 350px;
+  margin-right: 350px;
 }
 
 .generatedMessage:hover{
-	background-color:  white;
+	background-color:  #2C3E50;
 	border-radius: 25px;
-	color: black;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	color: white;
 }
 
 .imageUpdate{
@@ -172,6 +213,16 @@ html {
   }
 }
 
+.textUpdateButton{
+  text-decoration: none;
+  color: white;
+}
 
+#methodCard1{
+  margin-left: 500px;
+}
 
+#methodCard2{
+  margin-left: 500px;
 
+}
