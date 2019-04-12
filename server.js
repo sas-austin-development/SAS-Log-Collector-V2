@@ -26,7 +26,7 @@ var formidable = require('formidable');
 var fs = require('fs');
 app.use(bodyParser.urlencoded({extended: true}));
 //parse multipart/form-data    
-app.use(busboyBodyParser());
+// app.use(busboyBodyParser());
 
 /*********** Setting the Port to Listen To ***********/
 app.listen(3000, function() {
@@ -44,66 +44,70 @@ app.get('/', (req, res) => {
 
 
 
-app.post('/informationRequest', (req, res) => {
-    /*********************************************************/
-    /********Setting up Varriables to intake Form Data *******/
-    /*********************************************************/
-    res.locals.custEmail = req.body.email;
-    res.locals.custTrackingNumber = req.body.trackingNumber;
-    res.locals.custOperatingSystem = req.body.operatingSystem;
-    console.log(res.locals.custEmail);
-    console.log(res.locals.custTrackingNumber);
-    console.log(res.locals.custOperatingSystem);
+// app.post('/informationRequest', (req, res) => {
+//     /*********************************************************/
+//     /********Setting up Varriables to intake Form Data *******/
+//     /*********************************************************/
+//     res.locals.custEmail = req.body.email;
+//     res.locals.custTrackingNumber = req.body.trackingNumber;
+//     res.locals.custOperatingSystem = req.body.operatingSystem;
+//     console.log(res.locals.custEmail);
+//     console.log(res.locals.custTrackingNumber);
+//     console.log(res.locals.custOperatingSystem);
 
-    /*********************************************************************************/
-    /******** Sending Email, Tracking Number, and Operating System to Database *******/
-    /*********************************************************************************/
-    db.collection('userinfo-new').save(req.body, (err, result) => {
-    if (err) return console.log(err)
-    console.log('Saved to database')
-    res.redirect('/')
-  })
+//     /*********************************************************************************/
+//     /******** Sending Email, Tracking Number, and Operating System to Database *******/
+//     /*********************************************************************************/
+//     db.collection('userinfo-new').save(req.body, (err, result) => {
+//     if (err) return console.log(err)
+//     console.log('Saved to database')
+//     res.redirect('/')
+//   })
 
-    /***************************************************/
-    /******** Send out the Email with Attachment *******/
-    /***************************************************/
-    async function main(){
-      // create reusable transporter object using the default SMTP transport
-      let transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-            user: 'saslogcollector@gmail.com',
-            pass: 'test01**test'
-        }
-      });
+//     /***************************************************/
+//     /******** Send out the Email with Attachment *******/
+//     /***************************************************/
+//     async function main(){
+//       // create reusable transporter object using the default SMTP transport
+//       let transporter = nodemailer.createTransport({
+//         host: "smtp.gmail.com",
+//         port: 587,
+//         secure: false, // true for 465, false for other ports
+//         auth: {
+//             user: 'saslogcollector@gmail.com',
+//             pass: 'test01**test'
+//         }
+//       });
 
-      // send mail with defined transport object
-      let info = await transporter.sendMail({
-        from: '"SAS Log Collector" <saslogcollector@gmail.com>', // sender address
-        to: "saslogcollector@gmail.com", // list of receivers
-        subject: "Tracking Number:  SDW Logs", // Subject line
-        attachments: {path: 'logs/76198475_SDW.txt'},
-        text: "", // plain text body
-        html: "<b>The attachment is for Tracking Number. It contains SDW logs for the following Operating System.</b>" // html body
-      });
-      console.log("Message sent: %s", info.messageId);
-      // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-    }
-    main().catch(console.error);
-    /*******************************************************************************/
-})
+//       // send mail with defined transport object
+//       let info = await transporter.sendMail({
+//         from: '"SAS Log Collector" <saslogcollector@gmail.com>', // sender address
+//         to: "saslogcollector@gmail.com", // list of receivers
+//         subject: "Tracking Number:  SDW Logs", // Subject line
+//         attachments: {path: 'logs/76198475_SDW.txt'},
+//         text: "", // plain text body
+//         html: "<b>The attachment is for Tracking Number. It contains SDW logs for the following Operating System.</b>" // html body
+//       });
+//       console.log("Message sent: %s", info.messageId);
+//       // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+//     }
+//     main().catch(console.error);
+//     /*******************************************************************************/
+// })
 
 
 app.post('/upload', function (req, res){
-    console.log(req);
-    console.log(req.body.trackingNumber);
     var form = new formidable.IncomingForm();
     form.parse(req);
-    form.on('fileBegin', function (name, file){
-        file.path = __dirname + '/uploads/' + "test7.txt";
+
+    form.parse(req, function(err, fields, files) {
+    console.log(fields);
     });
+
+    form.on('fileBegin', function (name, file){
+        file.path = __dirname + '/uploads/' + "test15.txt";
+    });
+
     form.on('file', function (name, file){
         console.log('Uploaded ' + file.name);
     });
