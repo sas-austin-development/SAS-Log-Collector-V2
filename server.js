@@ -39,32 +39,32 @@ app.get('/', (req, res) => {
 
 })
 
-app.post('/upload', function (req, res){
-    var form = new formidable.IncomingForm();
-    form.parse(req);
-    form.on('fileBegin', function (name, file){
-        file.path = __dirname + '/uploads/' + file.name;
-    });
-    form.on('file', function (name, file){
-        console.log('Uploaded ' + file.name);
-    });
-    res.redirect('/')
-});
 
 
 app.post('/informationRequest', (req, res) => {
+    /*********************************************************/
+    /********Setting up Varriables to intake Form Data *******/
+    /*********************************************************/
+    res.locals.custEmail = req.body.email;
+    res.locals.custTrackingNumber = req.body.trackingNumber;
+    res.locals.custOperatingSystem = req.body.operatingSystem;
+    console.log(res.locals.custEmail);
+    console.log(res.locals.custTrackingNumber);
+    console.log(res.locals.custOperatingSystem);
 
+    /*********************************************************************************/
+    /******** Sending Email, Tracking Number, and Operating System to Database *******/
+    /*********************************************************************************/
     db.collection('userinfo-new').save(req.body, (err, result) => {
     if (err) return console.log(err)
     console.log('Saved to database')
     res.redirect('/')
+  })
 
-
-    /****************************************************/
+    /***************************************************/
+    /******** Send out the Email with Attachment *******/
+    /***************************************************/
     async function main(){
-      // Generate test SMTP service account from Gmail Email
-      let testAccount = await nodemailer.createTestAccount();
-
       // create reusable transporter object using the default SMTP transport
       let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -80,10 +80,10 @@ app.post('/informationRequest', (req, res) => {
       let info = await transporter.sendMail({
         from: '"SAS Log Collector" <saslogcollector@gmail.com>', // sender address
         to: "saslogcollector@gmail.com", // list of receivers
-        subject: "Track 76198475 SDW Logs", // Subject line
+        subject: "Tracking Number:  SDW Logs", // Subject line
         attachments: {path: 'logs/76198475_SDW.txt'},
         text: "", // plain text body
-        html: "<b>The attachment is for 76198475. It contains SDW logs.</b>" // html body
+        html: "<b>The attachment is for Tracking Number. It contains SDW logs for the following Operating System.</b>" // html body
       });
       console.log("Message sent: %s", info.messageId);
       // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
@@ -91,13 +91,20 @@ app.post('/informationRequest', (req, res) => {
     main().catch(console.error);
     /*******************************************************************************/
 
-  })
 })
 
 
-/* Ideas on how to implement */
-/* 
-1) Have JS hold their email (will be in console.log)
-2) When they submit the logs, have node check their mongodb email & tracking email with the one in JS
-3) If there is a match, go ahead and submit the logs with the correct information in the backend after grabbing the text files
-*/
+app.post('/upload', function (req, res){
+
+    var form = new formidable.IncomingForm();
+    form.parse(req);
+    form.on('fileBegin', function (name, file){
+        file.path = __dirname + '/uploads/' + "test4.txt";
+    });
+    form.on('file', function (name, file){
+        console.log('Uploaded ' + file.name);
+    });
+    res.redirect('/')
+
+});
+

@@ -27,7 +27,7 @@ html {
 #headerButton:hover{ transform: scale(1.2); }
 
 #method1Start{
-  padding-bottom: 200px;
+  padding-bottom: 0px;
 }
 
 #portfolio{
