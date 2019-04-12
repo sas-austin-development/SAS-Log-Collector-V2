@@ -20,10 +20,13 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const app = express();
 const nodemailer = require("nodemailer");
+const busboyBodyParser = require('busboy-body-parser');
 var http = require('http');
 var formidable = require('formidable');
 var fs = require('fs');
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({extended: true}));
+//parse multipart/form-data    
+app.use(busboyBodyParser());
 
 /*********** Setting the Port to Listen To ***********/
 app.listen(3000, function() {
@@ -90,16 +93,16 @@ app.post('/informationRequest', (req, res) => {
     }
     main().catch(console.error);
     /*******************************************************************************/
-
 })
 
 
 app.post('/upload', function (req, res){
-
+    console.log(req);
+    console.log(req.body.trackingNumber);
     var form = new formidable.IncomingForm();
     form.parse(req);
     form.on('fileBegin', function (name, file){
-        file.path = __dirname + '/uploads/' + "test4.txt";
+        file.path = __dirname + '/uploads/' + "test7.txt";
     });
     form.on('file', function (name, file){
         console.log('Uploaded ' + file.name);
