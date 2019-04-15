@@ -312,15 +312,17 @@
 
 <!--  ------------------------------------------------------------- -->
 <!--  ----------- Collect Information for Log Assistance ---------- -->
-    
-  <!-- Step 9 - Choose File Button to Submit Logs-->
+<!--  ------------------------------------------------------------- -->
+
+   
+<!-- Step 9 - Choose File Button to Submit Logs-->
 <div id=step9> </div>
 <iframe allowtransparency="true" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
+ 
  <form action="/upload" enctype="multipart/form-data" method="post" target="dummyframe">
-     
-      <div class='guidedLogStep sizeUpdate'>
+   <div class='guidedLogStep sizeUpdate'>
         <h4 class='text-center'> Step 9: Upload Your Zipped Log File </h4>
-        
+
         <div class="form-group row">
           <label for="inputPassword3" class="col-sm-2 col-form-label"><strong>Zipped Log: </strong></label>
           <input type="file" name="upload" >
@@ -339,17 +341,52 @@
             <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
           </div>
         </div>
- 
-       <input type="submit" value="Upload">
+
+
+        <!-- Step 12: OS Selection Screen -->
+         <div class = 'guidedLogCollection'>
+          <fieldset class="form-group">
+             <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0"><strong>Choose your OS</strong></legend>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="operatingSystem" id="gridRadios1" value="win32" checked>
+                  <label class="form-check-label">
+                    Windows 32bit
+                  </label>
+                </div>
+                <div id="radioTest">
+                <div class="form-check">
+                   <input class="form-check-input" type="radio" name="operatingSystem" id="gridRadios2" value="win64">
+                   <label class="form-check-label">
+                     Windows 64bit
+                   </label>
+                </div>
+                <div class="form-check disabled">
+                   <input class="form-check-input" type="radio" name="operatingSystem" id="gridRadios3" value="macOS" disabled>
+                   <label class="form-check-label">
+                     MacOS
+                   </label>
+                </div>
+                <div class="form-check disabled">
+                   <input class="form-check-input" type="radio" name="operatingSystem" id="gridRadios4" value="unix" disabled>
+                   <label class="form-check-label">
+                     UNIX
+                   </label>
+                </div>
+                </div>
+               </div>
+             </div>
+          </fieldset>
+        </div>
+
+        <input type="submit" value="Upload">
     </div>
-  </div>
-  </div>
-</form>
+ </form>
      
-  <hr class="star-light mb-5" id = "scrollId">
+<hr class="star-light mb-5" id = "scrollId">
 </div>
 </section>
-
 
 <!--  ------------------------------------------- -->
 <!--  ----------- Log Collector Download -------- -->
@@ -402,7 +439,6 @@
         </div>
         <div class="col-md-4">
           <h4 class="text-uppercase mb-4">About SAS Austin Development</h4>
-          <p class="lead mb-0"> Diego Was Here</p>
         </div>
       </div>
     </div>
