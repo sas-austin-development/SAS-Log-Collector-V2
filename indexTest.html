@@ -325,20 +325,20 @@
 
         <div class="form-group row">
           <label for="inputPassword3" class="col-sm-2 col-form-label"><strong>Zipped Log: </strong></label>
-          <input type="file" name="upload" >
+          <input type="file" name="upload" accept=".txt,.zip" required>
         </div>
 
         <div class="form-group row">
           <label for="inputPassword3" class="col-sm-2 col-form-label"><strong>Tracking Number</strong></label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputTrackingNumber" placeholder="Tracking Number" name="trackingNumber">
+            <input type="number" class="form-control" id="inputTrackingNumber" placeholder="Tracking Number" name="trackingNumber" required>
           </div>
         </div>
 
         <div class="form-group row">
           <label for="inputEmail3" class="col-sm-2 col-form-label"><strong>Email</strong></label>
            <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" required>
           </div>
         </div>
 
@@ -379,8 +379,8 @@
              </div>
           </fieldset>
         </div>
-
-        <input type="submit" value="Upload">
+        
+        <button type="submit" class="btn btn-primary" id="submitTestButton" onclick='submitAlert();'>Submit</button>
     </div>
  </form>
      

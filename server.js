@@ -44,11 +44,10 @@ app.post('/upload', function (req, res){
    /* Formidable Default Variable for Form Function */
     var form = new formidable.IncomingForm();
     /* Later Make This a Hash Key */
-    var key = Math.floor(Math.random() * Math.floor(9999999999999));
+    var key = Math.floor(Math.random() * Math.floor(9999999999999999));
     console.log(key);
 
     /* Creating a Document (ROW) in MongoDB with a Key (ID) for the Customer for later Matching */
-
     db.collection('userinfov2').insert({id: key});
    
 /* Getting the req.body Info (Tracking Number, Email, OS) */
@@ -75,11 +74,10 @@ app.post('/upload', function (req, res){
       console.log("File Path Set to: "+  file.path);
     });
 
-
     /* Submits Confirmation Message for the File to Defined Directory */
     /* file command - Emitted whenever a field / file pair has been received. file is an instance of File. */
     form.on('file', function (name, file){;
-        console.log('Uploaded ' + file.name); 
+      console.log('Uploaded ' + file.name); 
       form.on('progress', function(bytesReceived, bytesExpected) {
       console.log("test file", bytesReceived, bytesExpected)
        });
@@ -95,15 +93,24 @@ app.post('/upload', function (req, res){
                    /* The Resulting Tracking Number from the DB is an Object inside an Array */
                    let custTrackingNumber = result[0].custTrackingNumber;
                    let custEmail = result[0].custEmail;
-                   console.log(custTrackingNumber);
-                   console.log(custEmail);
+                   // console.log(custTrackingNumber);
+                   // console.log(custEmail);
                    
                    /* Renames the File with the Tracking Number */
                    fs.rename('./uploads/'+key+'.txt', './uploads/'+custTrackingNumber+'.txt', function (err) {
                       if (err) throw err;
-                      console.log('renamed complete');
+                      // console.log('renamed complete');
                   });
 
+                  function validateEmail(email) //source: http://form.guide/best-practices/validate-email-address-using-javascript.html
+                   {
+                      var re = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
+                      return re.test(email);
+                   }
+
+                  /* Email Validator - Just in Case Frontend Validator fails */
+                  if( validateEmail(custEmail))
+                  {
                      /***************************************************/
                      /******** Send out the Email with Attachment *******/
                      /***************************************************/
@@ -131,7 +138,9 @@ app.post('/upload', function (req, res){
                           // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
                         }
                         main().catch(console.error);
-                       /*******************************************************************************/
+                      }
+                    else{console.log("EMAIL NOT VALID")}
+                    /*******************************************************************************/
          }));
     });
    

@@ -14,6 +14,7 @@ var input = document.getElementById("testId");
 var ul = document.getElementById("itemList");
 var email = document.getElementById("inputEmail");
 var trackingNumber = document.getElementById("inputTrackingNumber");
+var form = document.getElementById("submitTestButton");
 
 /* Setting the Header and Body Hidden when the Site loads*/
 document.getElementById("testsdwcheck").hidden = false;
@@ -28,6 +29,10 @@ function inputLengthEmail() {
 }
 function inputLengthTrackingNumber() {
 	return trackingNumber.value.length;
+}
+
+function submitAlert(){
+	alert("Your Logs have been Submitted")
 }
 
 /* Output Email and Tracking Number Values for Storage Purposes*/
