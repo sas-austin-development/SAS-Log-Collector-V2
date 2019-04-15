@@ -48,6 +48,7 @@ app.post('/upload', function (req, res){
     console.log(key);
 
     /* Creating a Document (ROW) in MongoDB with a Key (ID) for the Customer for later Matching */
+
     db.collection('userinfov2').insert({id: key});
    
 /* Getting the req.body Info (Tracking Number, Email, OS) */
@@ -84,74 +85,56 @@ app.post('/upload', function (req, res){
        });
     });
 
-    /* Runs after File Transfer Finishes - fs.rename Renames the File*/
+    /* Runs after File Transfer Finishes - fs.rename Renames the File - Grabs Info from Database - Sends Email*/
     form.on('end', function() {
         /* Grabs the Tracking Number w/ Use of the Generated User Identifier */
-        db.collection('userinfov2').find({id:key}, {projection: { _id: 0, custTrackingNumber: 1}})
+        db.collection('userinfov2').find({id:key}, {projection: { _id: 0, custEmail: 1, custTrackingNumber: 1}})
               .toArray((function(err, result){
                    if (err) throw err;
+                  
+                   /* The Resulting Tracking Number from the DB is an Object inside an Array */
                    let custTrackingNumber = result[0].custTrackingNumber;
+                   let custEmail = result[0].custEmail;
                    console.log(custTrackingNumber);
+                   console.log(custEmail);
+                   
                    /* Renames the File with the Tracking Number */
                    fs.rename('./uploads/'+key+'.txt', './uploads/'+custTrackingNumber+'.txt', function (err) {
                       if (err) throw err;
                       console.log('renamed complete');
                   });
+
+                     /***************************************************/
+                     /******** Send out the Email with Attachment *******/
+                     /***************************************************/
+                        async function main(){
+                          // create reusable transporter object using the default SMTP transport
+                          let transporter = nodemailer.createTransport({
+                            host: "smtp.gmail.com",
+                            port: 587,
+                            secure: false, // true for 465, false for other ports
+                            auth: {
+                                user: 'saslogcollector@gmail.com',
+                                pass: 'test01**test'
+                            }
+                          });
+                          // send mail with defined transport object
+                          let info = await transporter.sendMail({
+                            from: '"SAS Log Collector" <saslogcollector@gmail.com>', // sender address
+                            to: custEmail, // list of receivers
+                            subject: custTrackingNumber, // Subject line
+                            attachments: {path: 'uploads/'+custTrackingNumber+'.txt'},
+                            text: "", // plain text body
+                            html: "<b>The attachment is for Tracking Number. It contains SDW logs for the following Operating System.</b>" // html body
+                          });
+                          console.log("Message sent: %s", info.messageId);
+                          // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+                        }
+                        main().catch(console.error);
+                       /*******************************************************************************/
          }));
     });
    
     /* User needs a Post Response (Redirect to Home -> Bypass in Index) */
     res.redirect('/');
 });
-
-
-// app.post('/informationRequest', (req, res) => {
-//     /*********************************************************/
-//     /********Setting up Varriables to intake Form Data *******/
-//     /*********************************************************/
-//     res.locals.custEmail = req.body.email;
-//     res.locals.custTrackingNumber = req.body.trackingNumber;
-//     res.locals.custOperatingSystem = req.body.operatingSystem;
-//     console.log(res.locals.custEmail);
-//     console.log(res.locals.custTrackingNumber);
-//     console.log(res.locals.custOperatingSystem);
-
-//     /*********************************************************************************/
-//     /******** Sending Email, Tracking Number, and Operating System to Database *******/
-//     /*********************************************************************************/
-//     db.collection('userinfo-new').save(req.body, (err, result) => {
-//     if (err) return console.log(err)
-//     console.log('Saved to database')
-//     res.redirect('/')
-//   })
-
-//     /***************************************************/
-//     /******** Send out the Email with Attachment *******/
-//     /***************************************************/
-//     async function main(){
-//       // create reusable transporter object using the default SMTP transport
-//       let transporter = nodemailer.createTransport({
-//         host: "smtp.gmail.com",
-//         port: 587,
-//         secure: false, // true for 465, false for other ports
-//         auth: {
-//             user: 'saslogcollector@gmail.com',
-//             pass: 'test01**test'
-//         }
-//       });
-
-//       // send mail with defined transport object
-//       let info = await transporter.sendMail({
-//         from: '"SAS Log Collector" <saslogcollector@gmail.com>', // sender address
-//         to: "saslogcollector@gmail.com", // list of receivers
-//         subject: "Tracking Number:  SDW Logs", // Subject line
-//         attachments: {path: 'logs/76198475_SDW.txt'},
-//         text: "", // plain text body
-//         html: "<b>The attachment is for Tracking Number. It contains SDW logs for the following Operating System.</b>" // html body
-//       });
-//       console.log("Message sent: %s", info.messageId);
-//       // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-//     }
-//     main().catch(console.error);
-//     /*******************************************************************************/
-// })
