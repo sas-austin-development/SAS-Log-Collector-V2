@@ -128,8 +128,8 @@
           <div class="card">
             <div class="card-body">
               <h4 card-title>SAS Deployment Wizard Logs</h4>
-              <p class="lead card-text"> Let us guide you through collecting your logs in an automated and streamlined fashion without having to download any programs.</p>
-              <p class="lead card-text"> This is recommended for users who know how to navigate through their directories.</p>
+              <p class="lead card-text"> SAS Deployment Wizard Logs are crucial for any installation or configuration troubleshooting.</p>
+              <p class="lead card-text"> If you Technical Support Engineer requested SAS Deployment Wizard, SDW, or Installation logs, please select this option.</p>
               <a href="#portfolioLog1" style="text-decoration: none; color: white;">
                 <button class="btn btn-primary">
                 Select 
@@ -144,7 +144,7 @@
             <div class="card-body">
               <h4 card-title>SAS Workspace Server Logs</h4>
               <p class="lead card-text"> Let us guide you through collecting your logs in an automated and streamlined fashion without having to download any programs.</p>
-              <p class="lead card-text"> This is recommended for users who know how to navigate through their directories.</p>
+              <p class="lead card-text"> If you Technical Support Engineer requested Workspace Server Logs, please select this option.</p>
                 <button class="btn btn-primary" disabled>
                 Not Available 
                 </button>
@@ -158,7 +158,7 @@
             <div class="card-body">
               <h4 card-title>SAS Object Spawner Logs</h4>
               <p class="lead card-text"> Let us guide you through collecting your logs in an automated and streamlined fashion without having to download any programs.</p>
-              <p class="lead card-text"> This is recommended for users who know how to navigate through their directories.</p>
+              <p class="lead card-text"> If you Technical Support Engineer requested Object Spawner Logs, please select this option.</p>
               <button class="btn btn-primary" disabled>
                 Not Available 
                 </button>
@@ -171,7 +171,7 @@
             <div class="card-body">
               <h4 card-title>SAS Metadata Server Logs</h4>
               <p class="lead card-text"> Let us guide you through collecting your logs in an automated and streamlined fashion without having to download any programs.</p>
-              <p class="lead card-text"> This is recommended for users who know how to navigate through their directories.</p>
+              <p class="lead card-text"> If you Technical Support Engineer requested Metadata Server Logs, please select this option.</p>
               <button class="btn btn-primary" disabled>
                 Not Available 
                 </button>
@@ -205,7 +205,7 @@
       <!-- Step 1 C Drive -->
       <div class="card card-1"  id="step1">
         <h5 class="card-title">Step 1: Go to your C Drive</h5>
-          <img src="/img/sdwWalkthrough/step1.JPG" class="card-img-top" alt="...">
+          <img src="/img/sdwWalkthrough/step1.JPG" class="card-img-top stepImage" alt="...">
           <div class="card-body">
             <p class="card-text"><u>Please open up your C Drive. This can be done a few ways:</u></p>
             <ol> 
@@ -381,6 +381,30 @@
         </div>
         
         <button type="submit" class="btn btn-primary" id="submitTestButton" onclick='submitAlert();'>Submit</button>
+
+
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Open Modal</button>
+       <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" style="color:black">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Logs Submitted</h2>
+              </div>
+              <div class="modal-body">
+                <p>A SAS Technical Support Engineer will be Reaching out to you within 1 Business Day.</p>
+                <p>If you have any immediate questions or concerns, please call SAS Technical Support Directly</p>
+                <p>Contact SAS Technical Support: 1(919)677-8008</p>
+              </div>
+              <div class="modal-footer" style="font-family: arial">
+                <h3>Thank you!</h3>
+              </div>
+            </div>
+          </div>
+        <!-- End -->
+
     </div>
  </form>
      

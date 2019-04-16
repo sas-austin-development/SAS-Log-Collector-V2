@@ -2,6 +2,8 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ADD CSS Font Sizing: https://css-tricks.com/books/volume-i/scale-typography-screen-size */
+
 .nav-link{
   scroll-behavior: auto;
 }
@@ -18,9 +20,7 @@ html {
   padding-bottom: 20px;
   padding-left: 30px;
   padding-right: 30px;
-
   font-size: 25px;
-
   transition: all .5s ease-in-out;
 }
 
@@ -42,12 +42,10 @@ html {
 	box-shadow: 5px 5px 4px #1a252f;
 	margin-top: 35px;
 	margin-bottom: 20px;
-
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 20px;
 	padding-bottom: 20px;
-
 	transition: all .25s ease-in-out;
 }
 
@@ -57,8 +55,10 @@ html {
 }
 
 .sizeUpdate{
-  margin-left: 400px;
-  margin-right: 400px;
+  margin-top: 80px;
+  margin-bottom: 100px;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .sizeUpdateZip{
@@ -80,8 +80,8 @@ html {
 	padding-top: 40px;
 	padding-bottom: 40px;
 	transition: all .5s ease-in-out;
-  margin-left: 350px;
-  margin-right: 350px;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .generatedMessage:hover{
@@ -113,6 +113,8 @@ html {
     color: white;
     padding-right: 10px;
     padding-left: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .card:hover { transform: scale(1.015); }
 
@@ -149,80 +151,86 @@ html {
   text-decoration: none;
 }
 
-/******* ADDING ARROW ANIMATION ********/
-.downArrow{
-	width: auto;
-	margin-left:480px;
-	left: 50%;
-}
-.arrowClass{
-	width: 25%;
-	height: 25%;
-}
-.bounce {
-	-moz-animation: bounce 3s infinite;
-	-webkit-animation: bounce 3s infinite;
-	animation: bounce 3s infinite;
-}
-@-moz-keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    -moz-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -moz-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-  60% {
-    -moz-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-}
-@-webkit-keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-  60% {
-    -webkit-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-}
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -moz-transform: translateY(-30px);
-    -ms-transform: translateY(-30px);
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-  60% {
-    -moz-transform: translateY(-15px);
-    -ms-transform: translateY(-15px);
-    -webkit-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-}
-
 .textUpdateButton{
   text-decoration: none;
   color: white;
 }
 
 #methodCard1{
-  margin-left: 500px;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 #methodCard2{
-  margin-left: 500px;
-
+  margin-left: 25%;
+  margin-right: 25%;
 }
+
+/**************************************************/
+/***************** MODAL BUTTON *******************/
+/**************************************************/
+/* The Modal (background) */
+.modal {
+  font-family: arial;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-header {
+  padding: 2px 16px;
+  background-color: blue;
+  color: white;
+  font-family: arial;
+}
+.modal-body {padding: 2px 16px;}
+.modal-footer {
+  padding: 2px 16px;
+  background-color: blue;
+  color: white;
+  font-family: arial;
+}
+/**********************MODAL|END**************************/
