@@ -9,20 +9,42 @@
 
 
 /* Adding DOM Reference for ID's and Assigning them to Variables - These are all under the Collect Information for Log Assistance Section */
-var button = document.getElementById("generateLogAssistance");
-var input = document.getElementById("testId");
-var ul = document.getElementById("itemList");
+// var button = document.getElementById("submitTestButton");
 var email = document.getElementById("inputEmail");
 var trackingNumber = document.getElementById("inputTrackingNumber");
+var log = document.getElementById("inputLog");
 var form = document.getElementById("submitTestButton");
 
-/* Setting the Header and Body Hidden when the Site loads*/
-document.getElementById("testsdwcheck").hidden = false;
-document.getElementById("logColectorAssistance").hidden = false;
+/* Setting the Form Response Key to Hidden when the Site loads*/
 document.getElementById("dummyframe").hidden = true;
 
 
-/*MODAL STUFF */
+
+
+/* Length Function(s) - Finding the Length of an Input and Returning it */ /* Future Efficiency Increase- Implement this into an Array */
+function inputLengthEmail() {
+	return email.value.length;
+}
+function inputLengthTrackingNumber() {
+	return trackingNumber.value.length;
+}
+function inputLengthLog() {
+	return log.value.length;
+}
+
+/* Output Email and Tracking Number Values for Storage Purposes*/
+function outputEmail() {
+	return email.value;
+}
+function outputTrackingNumber() {
+	return trackingNumber.value;
+}
+function outputLog() {
+	return log.value;
+}
+
+/******************************************************************/
+/**************** Drop Down Modal Submit Button *******************/
 // Get the modal
 var modal = document.getElementById('myModal');
 // Get the button that opens the modal
@@ -31,7 +53,25 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
-  modal.style.display = "block";
+	var emailHold = outputEmail();
+	var trackingNumberHold = outputTrackingNumber();
+	var logHold = outputLog();
+	var logSize = inputLengthLog();
+	console.log("User's Email: " + emailHold);
+	console.log("User's Tracking Number: " + trackingNumberHold);
+	console.log("User's Log: " + logHold);
+	console.log("User's Log Path Size: " + logSize);
+
+  var emailSize = inputLengthEmail();
+  var trackingNumberSize = inputLengthTrackingNumber();
+  if (emailSize > 0 && trackingNumberSize > 6 && logSize > 0)
+  {
+  	modal.style.display = "block";
+  }
+  // else{
+  // 	alert("Please enter all fields");
+  // }
+  
 }
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -43,37 +83,4 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-/*********************/
-
-
-/* Length Function(s) - Finding the Length of an Input and Returning it */ /* Future Efficiency Increase- Implement this into an Array */
-function inputLength() {
-	return 1;
-}
-function inputLengthEmail() {
-	return email.value.length;
-}
-function inputLengthTrackingNumber() {
-	return trackingNumber.value.length;
-}
-
-function submitAlert(){
-	// alert("Your Logs have been Submitted")
-}
-
-/* Output Email and Tracking Number Values for Storage Purposes*/
-function outputEmail() {
-	return email.value;
-}
-function outputTrackingNumber() {
-	return trackingNumber.value;
-}
-
-
-button.addEventListener("click", function() {
-			/* Hold the User's Email & Tracking Number */
-			var emailHold = outputEmail();
-			var trackingNumberHold = outputTrackingNumber();
-			console.log("User's Email: " + emailHold);
-			console.log("User's Tracking Number: " + trackingNumberHold);
-}, false);
+/*********************************************************************/

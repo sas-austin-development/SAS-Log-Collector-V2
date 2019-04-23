@@ -9,7 +9,7 @@
 
 
 /* Adding DOM Reference for ID's and Assigning them to Variables - These are all under the Collect Information for Log Assistance Section */
-var button = document.getElementById("generateLogAssistance");
+var button = document.getElementById("submitTestButton");
 var ul = document.getElementById("itemList");
 var email = document.getElementById("inputEmail");
 var trackingNumber = document.getElementById("inputTrackingNumber");
@@ -37,8 +37,8 @@ function outputTrackingNumber() {
 	return trackingNumber.value;
 }
 
-/* Appears the SDW Steps when the "Generate Log Assistance" is Pressed if there is something in the Email && Tracking Number Field */
-/* IMPORTANT: IF this does not work in other browsers, the alternative is to use the display: none CSS and update it using JS CSS Manipulation */
+// /* Appears the SDW Steps when the "Generate Log Assistance" is Pressed if there is something in the Email && Tracking Number Field */
+// /* IMPORTANT: IF this does not work in other browsers, the alternative is to use the display: none CSS and update it using JS CSS Manipulation */
 function updatePage(){
 		if (inputLengthEmail() > 0 && inputLengthTrackingNumber() > 0 /*Tracking Numbers are 10 Digits*/) 
 		{	

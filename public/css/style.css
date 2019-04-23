@@ -31,7 +31,7 @@ html {
 }
 
 #portfolio{
-  margin-top: 100px;
+  margin-top: 10px;
   margin-bottom: 200px;
 }
 
@@ -97,12 +97,6 @@ html {
 	width: auto;
 }
 
-.sdwLogAssistance{
-	margin: 0 auto;
-    width: 1000px;
-    color: black;
-}
-
 .card{
 	margin-top: 40px;
 	border-radius: 10px;
@@ -113,8 +107,8 @@ html {
     color: white;
     padding-right: 10px;
     padding-left: 10px;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 23%;
+  margin-right: 23%;
 }
 .card:hover { transform: scale(1.015); }
 
@@ -210,7 +204,7 @@ html {
 /* The Close Button */
 .close {
   color: white;
-  float: right;
+  float: left;
   font-size: 28px;
   font-weight: bold;
 }
@@ -222,15 +216,31 @@ html {
 }
 .modal-header {
   padding: 2px 16px;
-  background-color: blue;
+  background-color: #2C3E50;
   color: white;
   font-family: arial;
 }
 .modal-body {padding: 2px 16px;}
 .modal-footer {
   padding: 2px 16px;
-  background-color: blue;
+  background-color: #2C3E50;
   color: white;
   font-family: arial;
 }
-/**********************MODAL|END**************************/
+#myBtn{
+  background-color: white;
+  color: #2C3E50;
+  margin-top: -50px;
+  margin-left: 41%;
+  margin-right: 25%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 60px;
+  padding-right: 60px;
+  font-size: 40px;
+  font-weight: bold;
+  transition: all .5s ease-in-out;
+}
+#myBtn:hover{ transform: scale(1.2); }
+/**********************MODAL | END**************************/
+/*********************************************************/
