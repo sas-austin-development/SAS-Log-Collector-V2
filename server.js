@@ -33,7 +33,7 @@ app.use(express.static(__dirname + '/public'));
 
 /*********** When User Gets / The Index.HTML is Displayed with Static CSS and JS ***********/
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/indexTest.html')
+  res.sendFile(__dirname + '/index.html')
   console.log('Arrived at Index Home')
 
 })
