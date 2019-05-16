@@ -30,36 +30,36 @@
     "url": "git+https://github.com/BlackrockDigital/startbootstrap-freelancer.git"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "5.7.2",
+    "@fortawesome/fontawesome-free": "5.8.2",
     "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.19.0",
     "bootstrap": "4.3.1",
     "busboy-body-parser": "^0.3.2",
     "cors": "^2.8.5",
-    "dotenv": "^7.0.0",
+    "dotenv": "^8.0.0",
     "express": "^4.16.4",
     "formidable": "^1.2.1",
-    "jquery": "3.3.1",
+    "jquery": "3.4.1",
     "jquery.easing": "^1.4.1",
-    "knex": "^0.16.3",
+    "knex": "^0.16.5",
     "magnific-popup": "^1.1.0",
-    "mongodb": "^3.2.3",
-    "mongoose": "^5.5.0",
-    "nodemailer": "^6.1.0"
+    "mongodb": "^3.2.4",
+    "mongoose": "^5.5.9",
+    "nodemailer": "^6.1.1"
   },
   "devDependencies": {
-    "browser-sync": "2.26.3",
-    "del": "^3.0.0",
-    "gulp": "4.0.0",
-    "gulp-autoprefixer": "6.0.0",
-    "gulp-clean-css": "4.0.0",
+    "browser-sync": "2.26.5",
+    "del": "^4.1.1",
+    "gulp": "4.0.2",
+    "gulp-autoprefixer": "6.1.0",
+    "gulp-clean-css": "4.2.0",
     "gulp-header": "2.0.7",
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "1.4.0",
     "gulp-sass": "4.0.2",
-    "gulp-uglify": "3.0.1",
+    "gulp-uglify": "3.0.2",
     "merge-stream": "^1.0.1",
-    "nodemon": "^1.18.11"
+    "nodemon": "^1.19.0"
   },
   "main": "gulpfile.js"
 }
