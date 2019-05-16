@@ -16,6 +16,7 @@ MongoClient.connect(process.env.DATABASE, (err, client) => {
 
 /*********** Requirements and Server Setup ***********/
 const express = require('express');
+const http = require('http');
 const bodyParser = require('body-parser');
 const app = express();
 const nodemailer = require("nodemailer");
@@ -23,10 +24,23 @@ var formidable = require('formidable');
 var fs = require('fs');
 app.use(bodyParser.urlencoded({extended: true}));
 
+/*********** HostName & Port ***********/
+const hostname = '172.25.73.162';
+const port = 80;
+const httpServer = http.createServer(app);
+
+
+
+/*********** FTP Requirements ***********/
+const ftp = require("basic-ftp");
+
+
 /*********** Setting the Port to Listen To ***********/
-app.listen(3000, function() {
-  console.log('listening on 3000')
-})
+// app.listen(3000, function() {
+//   console.log('listening on 3000')
+// })
+httpServer.listen(port, hostname);
+
 
 /*********** Using Static Files like CSS/JS to Display with Response ***********/
 app.use(express.static(__dirname + '/public'));
@@ -140,7 +154,31 @@ app.post('/upload', function (req, res){
                         }
                         main().catch(console.error);
                       }
-                    else{console.log("EMAIL NOT VALID")}
+
+                      /*********** FTP *******************/
+                      // async function ftpSend() {
+                      //       const client = new ftp.Client()
+                      //       client.ftp.verbose = true
+                      //       try {
+                      //           await client.access({
+                      //               host: "ftp.sas.com",
+                      //               user: "anonymous",
+                      //               password: "",
+                      //               secure: true
+                      //           })
+                      //       await client.ensureDir("/techsup/upload")
+                      //
+                      //           console.log(await client.list())
+                      //           await client.upload(fs.createReadStream('uploads/'+custTrackingNumber+'.txt'), custTrackingNumber+'.txt')
+                      //           console.log("Created Stream for"+"Readme.md");
+                      //       }
+                      //       catch(err) {
+                      //           console.log(err)
+                      //       }
+                      //       client.close()
+                      //   }
+                      /**********************************/
+                    // else{console.log("EMAIL NOT VALID")}
                     /*******************************************************************************/
          }));
     });

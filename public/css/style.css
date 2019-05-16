@@ -227,12 +227,18 @@ html {
   color: white;
   font-family: arial;
 }
+#wrapper{
+  text-align: center;
+  padding: 20px; /* Give us some breathing room */
+  display: flex;
+  justify-content: center;
+}
 #myBtn{
   background-color: white;
   color: #2C3E50;
   margin-top: -50px;
-  margin-left: 41%;
-  margin-right: 25%;
+/*  margin-left: 41%;
+  margin-right: 25%;*/
   padding-top: 25px;
   padding-bottom: 25px;
   padding-left: 60px;
