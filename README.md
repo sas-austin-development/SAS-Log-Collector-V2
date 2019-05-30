@@ -27,6 +27,15 @@ Currently this SAS Web Application is able to collect the following:
 1. SAS Deployment Wizard Logs - Windows Installation Logs
 ```
 
+#### Future Log Collection
+In the future, we will implement the following log collection logic:
+```
+1. SAS Object Spawner Logs
+2. SAS Metadata Server Logs
+3. SAS Workspace Server Logs
+4. SAS Enterprise Guide Application Logs
+```
+
 ## Built With
 
 * [Node.JS](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
