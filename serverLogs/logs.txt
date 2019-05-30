@@ -1,0 +1,63 @@
+MongoDB connection open on mongodb://localhost:27017/log-collector-demo
+9340968330821684
+File Path Set to: /home/arts/Documents/SAS-Log-Collector-V2/uploads/9340968330821684.zip
+File Uploading 13.59%
+File Uploading 20.45%
+File Uploading 27.31%
+File Uploading 34.17%
+File Uploading 41.03%
+File Uploading 47.89%
+File Uploading 54.75%
+File Uploading 61.61%
+File Uploading 68.47%
+File Uploading 75.32%
+File Uploading 82.18%
+File Uploading 89.04%
+File Uploading 95.90%
+File Uploading 100.00%
+Arrived at Index Home
+Upload Complete: sdwWalkthrough-20190501T224132Z-001.zip
+Sending Email to support@sas.com
+[ '346568679456', 'saslogcollector@gmail.com', 'win32' ]
+[2019-05-30 22:40:18] DEBUG Creating transport: nodemailer (6.1.1; +https://nodemailer.com/; SMTP/6.1.1[client:6.1.1])
+[2019-05-30 22:40:18] DEBUG Sending mail using SMTP/6.1.1[client:6.1.1]
+[2019-05-30 22:40:18] DEBUG [Rzeuv87Rn0] Resolved mailhost.fyi.sas.com as 10.15.1.83 [cache miss]
+[2019-05-30 22:40:18] INFO  [Rzeuv87Rn0] Connection established to 10.15.1.83:25
+[2019-05-30 22:40:18] INFO  [Rzeuv87Rn0] Connection upgraded with STARTTLS
+[2019-05-30 22:40:18] DEBUG [Rzeuv87Rn0] SMTP handshake finished
+[2019-05-30 22:40:18] INFO  Sending message <bc3b2740-b6d2-5b2e-43dc-794c7dc96863@gmail.com> to <support@sas.com>
+[2019-05-30 22:40:19] INFO  [Rzeuv87Rn0] <1307427 bytes encoded mime message (source size 1307424 bytes)>
+[2019-05-30 22:40:19] DEBUG [Rzeuv87Rn0] Closing connection to the server using "end"
+Message sent: <bc3b2740-b6d2-5b2e-43dc-794c7dc96863@gmail.com>
+[2019-05-30 22:40:19] INFO  [Rzeuv87Rn0] Connection closed
+7429844972541526
+File Path Set to: /home/arts/Documents/SAS-Log-Collector-V2/uploads/7429844972541526.zip
+File Uploading 13.59%
+File Uploading 20.45%
+File Uploading 27.31%
+File Uploading 34.17%
+File Uploading 41.03%
+File Uploading 47.89%
+File Uploading 54.75%
+File Uploading 61.61%
+File Uploading 68.47%
+File Uploading 75.32%
+File Uploading 82.18%
+File Uploading 89.04%
+File Uploading 95.90%
+File Uploading 100.00%
+Arrived at Index Home
+Upload Complete: sdwWalkthrough-20190501T224132Z-001.zip
+Sending Email to support@sas.com
+[ '346568679456', 'saslogcollector@gmail.com', 'win32' ]
+[2019-05-30 22:40:23] DEBUG Creating transport: nodemailer (6.1.1; +https://nodemailer.com/; SMTP/6.1.1[client:6.1.1])
+[2019-05-30 22:40:23] DEBUG Sending mail using SMTP/6.1.1[client:6.1.1]
+[2019-05-30 22:40:23] DEBUG [0sWihBe6Ojo] Resolved mailhost.fyi.sas.com as 10.15.1.83 [cache hit]
+[2019-05-30 22:40:23] INFO  [0sWihBe6Ojo] Connection established to 10.15.1.83:25
+[2019-05-30 22:40:23] INFO  [0sWihBe6Ojo] Connection upgraded with STARTTLS
+[2019-05-30 22:40:23] DEBUG [0sWihBe6Ojo] SMTP handshake finished
+[2019-05-30 22:40:23] INFO  Sending message <52af6576-09ca-da50-b175-afafa41ce9ea@gmail.com> to <support@sas.com>
+[2019-05-30 22:40:24] INFO  [0sWihBe6Ojo] <1307427 bytes encoded mime message (source size 1307424 bytes)>
+[2019-05-30 22:40:24] DEBUG [0sWihBe6Ojo] Closing connection to the server using "end"
+Message sent: <52af6576-09ca-da50-b175-afafa41ce9ea@gmail.com>
+[2019-05-30 22:40:24] INFO  [0sWihBe6Ojo] Connection closed
