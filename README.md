@@ -24,7 +24,7 @@ Safari: Version UNKNOWN
 
 Currently this SAS Web Application is able to collect the following:
 ```
-SAS Deployment Wizard Logs - Windows Installation Logs
+1. SAS Deployment Wizard Logs - Windows Installation Logs
 ```
 
 ## Built With
