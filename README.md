@@ -13,11 +13,11 @@ To utilize this Log Collector Tool, please simply go to the following web addres
 Currently this SAS Web Application is tested and working on the following Web Browsers: 
 
 ```
-Google Chrome: Version UNKNOWN
-Mozilla Firefox: Version UNKNOWN
-Internet Explorer: Version UNKNOWN
-Microsoft Edge: Version UNKNOWN
-Safari: Version UNKNOWN
+* Google Chrome: Version UNKNOWN
+* Mozilla Firefox: Version UNKNOWN
+* Internet Explorer: Version UNKNOWN
+* Microsoft Edge: Version UNKNOWN
+* Safari: Version UNKNOWN
 ```
 
 #### What We Can Collect
