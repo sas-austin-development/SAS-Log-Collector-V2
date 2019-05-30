@@ -1,6 +1,6 @@
 # [SAS Log Collector](http://stormfly.na.sas.com/)
 
-[SAS Log Collector](https://github.com/KrisStobbe/SAS-Log-Collector) is a one page dynamic web application for customers needing to quickly upload different sets of logs. 
+SAS Log Collector is a one page dynamic web application for customers needing to quickly upload different sets of logs. Currently, the SAS Log Collector is able to collect SAS Deployment Wizard Logs (Windows Installation Logs).
 
 
 ## Getting Started
@@ -17,6 +17,13 @@ Mozilla Firefox: Version UNKNOWN
 Internet Explorer: Version UNKNOWN
 Microsoft Edge: Version UNKNOWN
 Safari: Version UNKNOWN
+```
+
+### What We Can Collect
+
+Currently this SAS Web Application is able to collect the following:
+```
+SAS Deployment Wizard Logs - Windows Installation Logs
 ```
 
 ## Built With
