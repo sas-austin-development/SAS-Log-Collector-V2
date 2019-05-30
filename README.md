@@ -58,15 +58,15 @@ Have a bug or an issue with this application? [Open a new issue](https://github.
 
 ## Authors
 
-* **Kris Stobbe** - *Full Stack Developer* - [SAS](https://github.com/KrisStobbe)
-* **Diego Hernandez** - *Powershell Developer* - [SAS]()
+* **Kris Stobbe** - *Full Stack Developer* - [SAS Technical Support](https://github.com/KrisStobbe)
+* **Diego Hernandez** - *Powershell Developer* - [SAS Technical Support](https://github.com/dherna35)
 
 
 ## Acknowledgments
 
-* Mario Perica
-* Andy Foreman 
-* Greg Alredge
+* Mario Perica - Thanks for help setting up the mail server!
+* Andy Foreman - Thank you for the help with hosting!
+* Greg Alredge - Thank you for all the suggestions and help!
 
 ## Copyright and License
 
