@@ -7,7 +7,7 @@ SAS Log Collector is a one page dynamic web application for customers needing to
 
 To utilize this Log Collector Tool, please simply go to the following web address and follow the instructions: [SAS Log Collector](http://stormfly.na.sas.com/)
 
-### Prerequisites
+#### Prerequisites
 
 Currently this SAS Web Application is tested and working on the following Web Browsers: 
 
@@ -19,7 +19,7 @@ Microsoft Edge: Version UNKNOWN
 Safari: Version UNKNOWN
 ```
 
-### What We Can Collect
+#### What We Can Collect
 
 Currently this SAS Web Application is able to collect the following:
 ```
