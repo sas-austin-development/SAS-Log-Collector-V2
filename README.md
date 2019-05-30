@@ -1,6 +1,24 @@
-# [SAS Log Collector](https://sas-austin-development.github.io/SAS-Log-Collector/)
+# [SAS Log Collector](http://stormfly.na.sas.com/)
 
-[SAS Log Collector](https://github.com/KrisStobbe/SAS-Log-Collector) is a one page dynamic web application for customers needing to quickly upload different sets of logs. This application is created by Kristoffer Stobbe and Diego Hernandez.
+[SAS Log Collector](https://github.com/KrisStobbe/SAS-Log-Collector) is a one page dynamic web application for customers needing to quickly upload different sets of logs. 
+
+## Getting Started
+
+To utilize this Log Collector Tool, please simply go to the following web address and follow the instructions: [SAS Log Collector](http://stormfly.na.sas.com/)
+
+### Prerequisites
+
+Currently this SAS Web Application is tested and working on the following Web Browsers: 
+
+```
+Give examples
+```
+## Built With
+
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+
 
 ## Status
 
@@ -15,6 +33,16 @@
 There are currently no reported bugs or issues.
 
 Have a bug or an issue with this application? [Open a new issue](https://github.com/sas-austin-development/SAS-Log-Collector/issues/new) here on GitHub and we will review it promptly.
+
+## Authors
+
+* **Kris Stobbe** - *Initial work* - [PurpleBooth](https://github.com/KrisStobbe)
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
 
 
 ## Copyright and License
