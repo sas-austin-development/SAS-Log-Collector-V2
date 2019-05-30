@@ -57,7 +57,7 @@ Have a bug or an issue with this application? [Open a new issue](https://github.
 
 ## Acknowledgments
 
-* Mario Hernandez
+* Mario Perica
 * Andy Foreman 
 * Greg Alredge
 
