@@ -74,7 +74,7 @@ Have a bug or an issue with this application? [Open a new issue](https://github.
 
 ## Acknowledgments
 
-* Mario Perica - *Thanks for help setting up the mail server!*
+* Mario Perica - *Thanks for the help setting up the mail server!*
 * Andy Foreman - *Thank you for the help with hosting!*
 * Greg Alredge - *Thank you for all the suggestions and help!*
 
