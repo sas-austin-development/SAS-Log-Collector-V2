@@ -23,6 +23,7 @@ const nodemailer = require("nodemailer");
 var formidable = require('formidable');
 var fs = require('fs');
 app.use(bodyParser.urlencoded({extended: true}));
+const _cliProgress = require('cli-progress');
 
 /*********** HostName & Port ***********/
 const hostname = '172.25.73.162';
@@ -52,6 +53,7 @@ app.get('/', (req, res) => {
 
 })
 
+
 /*Idea, send info to Database, set equal to key, pull info from database on form.on*/
 /*********** Formidable Node.JS Library to Import User Submitted Form & Save to Disk ***********/
 app.post('/upload', function (req, res){
@@ -77,27 +79,36 @@ app.post('/upload', function (req, res){
             console.log(custInfoArray2); 
      });
 
-    /* Change Default Options | Sets the Path Name and Submits it 
+   /* Change Default Options | Sets the Path Name and Submits it 
     /* fileBegin - Emitted whenever a new file is detected in the upload stream. 
     /* Use this event if you want to stream the file to somewhere else while buffering the upload on the file system*/
     form.on('fileBegin', function (name, file){
       form.on('progress', function(bytesReceived, bytesExpected) {
-      console.log("test fileBegin", bytesReceived, bytesExpected)
+      /*The bellow to variables are outputting a Percentage Complete*/
+      let percentageUpload = 100*bytesReceived/bytesExpected;
+      let percentageUploadFixed = percentageUpload.toFixed(2) + '%';
+
+      const bar1 = new _cliProgress.Bar({}, _cliProgress.Presets.shades_classic);
+      bar1.start(bytesExpected,bytesReceived);
+      bar1.update(bytesReceived);
+      console.log("File Uploading", percentageUploadFixed)
        });
-      file.path = __dirname + '/uploads/'+key+'.txt' ;   
+      file.path = __dirname + '/uploads/'+key+'.zip' ;   
       console.log("File Path Set to: "+  file.path);
     });
 
     /* Submits Confirmation Message for the File to Defined Directory */
     /* file command - Emitted whenever a field / file pair has been received. file is an instance of File. */
     form.on('file', function (name, file){;
-      console.log('Uploaded ' + file.name); 
+
+      console.log('Upload Complete: ' + file.name); 
+      console.log('Sending Email to support@sas.com'); 
       form.on('progress', function(bytesReceived, bytesExpected) {
-      console.log("test file", bytesReceived, bytesExpected)
+      console.log("File Uploading1", percentageUpload)
        });
     });
 
-    /* Runs after File Transfer Finishes - fs.rename Renames the File - Grabs Info from Database - Sends Email*/
+  /* Runs after File Transfer Finishes - fs.rename Renames the File - Grabs Info from Database - Sends Email*/
     form.on('end', function() {
         /* Grabs the Tracking Number w/ Use of the Generated User Identifier */
         db.collection('userinfov2').find({id:key}, {projection: { _id: 0, custEmail: 1, custTrackingNumber: 1}})
@@ -111,7 +122,7 @@ app.post('/upload', function (req, res){
                    // console.log(custEmail);
                    
                    /* Renames the File with the Tracking Number */
-                   fs.rename('./uploads/'+key+'.txt', './uploads/'+custTrackingNumber+'.txt', function (err) {
+                   fs.rename('./uploads/'+key+'.zip', './uploads/'+custTrackingNumber+'.zip', function (err) {
                       if (err) throw err;
                       // console.log('renamed complete');
                   });
@@ -132,20 +143,19 @@ app.post('/upload', function (req, res){
                         async function main(){
                           // create reusable transporter object using the default SMTP transport
                           let transporter = nodemailer.createTransport({
-                            host: "smtp.gmail.com",
-                            port: 587,
+                            host: "mailhost.fyi.sas.com",
+                            port: 25,
                             secure: false, // true for 465, false for other ports
-                            auth: {
-                                user: 'saslogcollector@gmail.com',
-                                pass: 'test01**test'
-                            }
+                            tls: {rejectUnauthorized: false},
+                            debug: false,
+                            logger: true 
                           });
                           // send mail with defined transport object
                           let info = await transporter.sendMail({
-                            from: '"SAS Log Collector" <saslogcollector@gmail.com>', // sender address
-                            to: custEmail, // list of receivers
-                            subject: custTrackingNumber, // Subject line
-                            attachments: {path: 'uploads/'+custTrackingNumber+'.txt'},
+                            from: custEmail, // sender address
+                            to: 'support@sas.com', // list of receivers
+                            subject: '7612795228', // Subject line
+                            attachments: {path: 'uploads/'+custTrackingNumber+'.zip'},
                             text: "", // plain text body
                             html: "<b>The attachment is for Tracking Number: "+custTrackingNumber+". It contains SDW logs.</b>" // html body
                           });
@@ -154,31 +164,7 @@ app.post('/upload', function (req, res){
                         }
                         main().catch(console.error);
                       }
-
-                      /*********** FTP *******************/
-                      // async function ftpSend() {
-                      //       const client = new ftp.Client()
-                      //       client.ftp.verbose = true
-                      //       try {
-                      //           await client.access({
-                      //               host: "ftp.sas.com",
-                      //               user: "anonymous",
-                      //               password: "",
-                      //               secure: true
-                      //           })
-                      //       await client.ensureDir("/techsup/upload")
-                      //
-                      //           console.log(await client.list())
-                      //           await client.upload(fs.createReadStream('uploads/'+custTrackingNumber+'.txt'), custTrackingNumber+'.txt')
-                      //           console.log("Created Stream for"+"Readme.md");
-                      //       }
-                      //       catch(err) {
-                      //           console.log(err)
-                      //       }
-                      //       client.close()
-                      //   }
-                      /**********************************/
-                    // else{console.log("EMAIL NOT VALID")}
+                    else{console.log("EMAIL NOT VALID")}
                     /*******************************************************************************/
          }));
     });
