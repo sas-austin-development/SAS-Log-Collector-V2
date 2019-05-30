@@ -2,6 +2,7 @@
 
 [SAS Log Collector](https://github.com/KrisStobbe/SAS-Log-Collector) is a one page dynamic web application for customers needing to quickly upload different sets of logs. 
 
+
 ## Getting Started
 
 To utilize this Log Collector Tool, please simply go to the following web address and follow the instructions: [SAS Log Collector](http://stormfly.na.sas.com/)
@@ -11,13 +12,26 @@ To utilize this Log Collector Tool, please simply go to the following web addres
 Currently this SAS Web Application is tested and working on the following Web Browsers: 
 
 ```
-Give examples
+Google Chrome: Version UNKNOWN
+Mozilla Firefox: Version UNKNOWN
+Internet Explorer: Version UNKNOWN
+Microsoft Edge: Version UNKNOWN
+Safari: Version UNKNOWN
 ```
+
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Node.JS](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Mongo Database]() - Version 3.2.3
+* [jquery]() - Version 3.3.1
+* [express]() - Version 4.16.4
+* [formidable]() - Version 1.2.1
+* [bootstrap]() - Version 4.3.1
+* [bcrypt-nodejs]() - Version 0.0.3
+* [body-parser]() - Version 1.18.3
+* [cli-progress]() - Version 2.1.1
+* [fortawesome]() - Version 5.7.2,
+* [Nodemailer]() - Version 6.1.0
 
 
 ## Status
@@ -34,16 +48,18 @@ There are currently no reported bugs or issues.
 
 Have a bug or an issue with this application? [Open a new issue](https://github.com/sas-austin-development/SAS-Log-Collector/issues/new) here on GitHub and we will review it promptly.
 
+
 ## Authors
 
-* **Kris Stobbe** - *Initial work* - [PurpleBooth](https://github.com/KrisStobbe)
+* **Kris Stobbe** - *Full Stack Developer* - [SAS](https://github.com/KrisStobbe)
+* **Diego Hernandez** - *Powershell Developer* - [SAS]()
+
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
+* Mario Hernandez
+* Andy Foreman 
+* Greg Alredge
 
 ## Copyright and License
 
