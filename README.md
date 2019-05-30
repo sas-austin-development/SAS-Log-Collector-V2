@@ -60,24 +60,24 @@ The following is the status of the MIT Licenses and Build Versions of critical p
 * [![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-freelancer/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-freelancer?type=dev)
 
 
-#### Bugs and Issues
+### Bugs and Issues
 There are currently no reported bugs or issues.
 
 Have a bug or an issue with this application? [Open a new issue](https://github.com/sas-austin-development/SAS-Log-Collector/issues/new) here on GitHub and we will review it promptly.
 
 
-#### Authors
+### Authors
 
 * **Kris Stobbe** - *Full Stack Developer* - [SAS Technical Support](https://github.com/KrisStobbe)
 * **Diego Hernandez** - *Powershell Developer* - [SAS Technical Support](https://github.com/dherna35)
 
 
-#### Acknowledgments
+### Acknowledgments
 
 * Mario Perica - *Thanks for the help setting up the mail server!*
 * Andy Foreman - *Thank you for the help with hosting!*
 * Greg Alredge - *Thank you for all the suggestions and help!*
 
-#### Copyright and License
+### Copyright and License
 
 Copyright 2013-2019 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-freelancer/blob/gh-pages/LICENSE) license.
