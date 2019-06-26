@@ -13,6 +13,8 @@ MongoClient.connect(process.env.DATABASE, (err, client) => {
   db = client.db('log-collector-demo'); // whatever your database name is
   console.log(`MongoDB connection open on ${process.env.DATABASE}`);
 })
+/*To Start the MONGODB service: sudo service mongod start */
+
 
 /*********** Requirements and Server Setup ***********/
 const express = require('express');
@@ -24,6 +26,9 @@ var formidable = require('formidable');
 var fs = require('fs');
 app.use(bodyParser.urlencoded({extended: true}));
 const _cliProgress = require('cli-progress');
+var cmd=require('node-cmd');
+var FTPS = require('ftps'); //https://www.npmjs.com/package/ftps
+
 
 /*********** HostName & Port ***********/
 const hostname = '172.25.73.162';
@@ -50,14 +55,13 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
   console.log('Arrived at Index Home')
-
 })
 
 
 /*Idea, send info to Database, set equal to key, pull info from database on form.on*/
 /*********** Formidable Node.JS Library to Import User Submitted Form & Save to Disk ***********/
 app.post('/upload', function (req, res){
-   /* Formidable Default Variable for Form Function */
+    /* Formidable Default Variable for Form Function */
     var form = new formidable.IncomingForm();
     /* Later Make This a Hash Key */
     var key = Math.floor(Math.random() * Math.floor(9999999999999999));
@@ -66,7 +70,7 @@ app.post('/upload', function (req, res){
     /* Creating a Document (ROW) in MongoDB with a Key (ID) for the Customer for later Matching */
     db.collection('userinfov2').insert({id: key});
    
-/* Getting the req.body Info (Tracking Number, Email, OS) */
+    /* Getting the req.body Info (Tracking Number, Email, OS) */
     form.parse(req, function(err, fields, files, name, file) 
           {
             let custTrackingNumber2 = fields.trackingNumber;
@@ -79,7 +83,7 @@ app.post('/upload', function (req, res){
             console.log(custInfoArray2); 
      });
 
-   /* Change Default Options | Sets the Path Name and Submits it 
+    /* Change Default Options | Sets the Path Name and Submits it 
     /* fileBegin - Emitted whenever a new file is detected in the upload stream. 
     /* Use this event if you want to stream the file to somewhere else while buffering the upload on the file system*/
     form.on('fileBegin', function (name, file){
@@ -108,7 +112,7 @@ app.post('/upload', function (req, res){
        });
     });
 
-  /* Runs after File Transfer Finishes - fs.rename Renames the File - Grabs Info from Database - Sends Email*/
+    /* Runs after File Transfer Finishes - fs.rename Renames the File - Grabs Info from Database - Sends Email*/
     form.on('end', function() {
         /* Grabs the Tracking Number w/ Use of the Generated User Identifier */
         db.collection('userinfov2').find({id:key}, {projection: { _id: 0, custEmail: 1, custTrackingNumber: 1}})
@@ -134,9 +138,21 @@ app.post('/upload', function (req, res){
                       return re.test(email); //Returns True if Emails Passes Test
                    }
 
+                  /* Setup Configuration to SAS FTP */
+                      var ftps = new FTPS({
+                          host: 'ftp.sas.com', // required
+                          username: '', // Optional. Use empty username for anonymous access.
+                          password: '', // Required if username is not empty, except when requiresPassword: false
+                          protocol: 'ftp', // Optional, values : 'ftp', 'sftp', 'ftps', ... default: 'ftp'
+                          requiresPassword: false, // Optional, defaults to true
+
+                      });
+                  /* FTP Logs to SAS */
+                      ftps.ls()
+                      ftps.cd('/techsup/upload').put('uploads/'+custTrackingNumber+'.zip').exec(console.log);
+                     
+
                   /* Email Validator - Just in Case Frontend Validator fails */
-                  if( validateEmail(custEmail))
-                  {
                      /***************************************************/
                      /******** Send out the Email with Attachment *******/
                      /***************************************************/
@@ -154,7 +170,7 @@ app.post('/upload', function (req, res){
                           let info = await transporter.sendMail({
                             from: custEmail, // sender address
                             to: 'support@sas.com', // list of receivers
-                            subject: '7612795228', // Subject line
+                            subject: '7612716859', // Subject line
                             attachments: {path: 'uploads/'+custTrackingNumber+'.zip'},
                             text: "", // plain text body
                             html: "<b>The attachment is for Tracking Number: "+custTrackingNumber+". It contains SDW logs.</b>" // html body
@@ -163,8 +179,6 @@ app.post('/upload', function (req, res){
                           // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
                         }
                         main().catch(console.error);
-                      }
-                    else{console.log("EMAIL NOT VALID")}
                     /*******************************************************************************/
          }));
     });
