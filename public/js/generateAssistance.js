@@ -59,7 +59,6 @@ function updatePage(){
 
 function multiFunction(){
 	updatePage();
-	// scrollIntoView();
 }
 
 button.addEventListener("click", multiFunction, true);

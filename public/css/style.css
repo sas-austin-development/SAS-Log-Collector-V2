@@ -1,9 +1,13 @@
+/**************************************/
+/************ CSS STYLES **************/
+/**************************************/
+
+/* HTML Styles: Changing Scroll Behavior */
 html {
   scroll-behavior: smooth;
 }
 
-/* ADD CSS Font Sizing: https://css-tricks.com/books/volume-i/scale-typography-screen-size */
-
+/************* Element and Class Styles *************/
 .nav-link{
   scroll-behavior: auto;
 }
@@ -110,6 +114,7 @@ html {
   margin-left: 23%;
   margin-right: 23%;
 }
+
 .card:hover { transform: scale(1.015); }
 
 .card-1{
@@ -140,6 +145,7 @@ html {
   color: white;
   text-decoration: none;
 }
+
 .generateAssistanceButton:hover{
   color: white;
   text-decoration: none;
@@ -220,6 +226,7 @@ html {
   color: white;
   font-family: arial;
 }
+
 .modal-body {padding: 2px 16px;}
 .modal-footer {
   padding: 2px 16px;
@@ -227,6 +234,7 @@ html {
   color: white;
   font-family: arial;
 }
+
 #wrapper{
   text-align: center;
   padding: 20px; /* Give us some breathing room */
@@ -237,8 +245,6 @@ html {
   background-color: white;
   color: #2C3E50;
   margin-top: -50px;
-/*  margin-left: 41%;
-  margin-right: 25%;*/
   padding-top: 25px;
   padding-bottom: 25px;
   padding-left: 60px;

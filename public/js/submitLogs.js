@@ -62,21 +62,18 @@ btn.onclick = function() {
 	console.log("User's Log: " + logHold);
 	console.log("User's Log Path Size: " + logSize);
 
-  var emailSize = inputLengthEmail();
-  var trackingNumberSize = inputLengthTrackingNumber();
-  if (emailSize > 0 && trackingNumberSize > 6 && logSize > 0)
-  {
-  	modal.style.display = "block";
-  }
-  // else{
-  // 	alert("Please enter all fields");
-  // }
-  
+    var emailSize = inputLengthEmail();
+    var trackingNumberSize = inputLengthTrackingNumber();
+    if (emailSize > 0 && trackingNumberSize > 6 && logSize > 0)
+	  {
+	  	modal.style.display = "block";
+	  }
 }
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 }
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
